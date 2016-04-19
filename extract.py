@@ -14,8 +14,13 @@ if __name__ == '__main__':
   for i in range(w):
     for j in range(h):
       d = imd[i, j]
-      oimd[i,j] = 255 if d[0] & 1 else 0
+      oimd[i,j] = 255 * (d[-1] & 1)
+      #oimd[i,j] = 255 * (d[-1]>>1 & 1)
+      #oimd[i,j] = 255 * (1 if d[-1] & 0b111 == 0b111 else 0)
 
   from os.path import splitext
   root, ext = splitext(argv[1])
-  oim.save(root+'_1bit'+ext)
+  fname = root+'_1bit'+ext
+  oim.save(fname)
+  from os import startfile
+  startfile(fname)
