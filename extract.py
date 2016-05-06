@@ -22,5 +22,13 @@ if __name__ == '__main__':
   root, ext = splitext(argv[1])
   fname = root+'_1bit'+ext
   oim.save(fname)
-  from os import startfile
-  startfile(fname)
+  from sys import platform
+  if platform == 'win32':
+    from os import startfile
+    startfile(fname)
+  elif platform == 'darwin':
+    from os import system
+    system('open '+fname)
+  elif platform.startswith('linux'):
+    from os import system
+    system('xdg-open '+fname)
