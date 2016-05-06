@@ -19,3 +19,4 @@ This is also be called as LSB steganography.
 
 #### Note
   - Saving to JPG/JPEG file will loose its LSB.
+  - It is now available in both Python 2 and 3.

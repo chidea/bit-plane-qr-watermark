@@ -20,7 +20,7 @@ if __name__ == '__main__':
   for i in range(w):
     for j in range(h):
       d = imd[i, j]
-      imd[i, j] = (*d[:-1], (d[-1] | 1) if qr.getpixel((i%qw, j%qh)) else (d[-1] & ~1))
+      imd[i, j] = d[:-1] +((d[-1] | 1) if qr.getpixel((i%qw, j%qh)) else (d[-1] & ~1),)
       #imd[i, j] = (*d[:-1], (d[-1] | 0b11) if qr.getpixel((i%qw, j%qh)) else (d[-1] & ~0b11))
       #imd[i, j] = (*d[:-1], (d[-1] | 0b111) if qr.getpixel((i%qw, j%qh)) else (d[-1] & ~0b111))
 
